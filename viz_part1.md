@@ -20,6 +20,12 @@ library(tidyverse)
 
 ``` r
 library(ggridges)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
 ```
 
 Get the data ro be visualized from the Internet.
@@ -69,7 +75,7 @@ ggplot(weather_df, aes(x = tmin, y = tmax)) +
 
     ## Warning: Removed 17 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot1-1.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot1-1.png" width="90%" />
 
 pipes and stuff
 
@@ -80,7 +86,7 @@ weather_df |>
   geom_point()
 ```
 
-![](viz_part1_files/figure-gfm/plot2-1.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot2-1.png" width="90%" />
 
 ``` r
 ggplot_nyc_weather = 
@@ -92,7 +98,7 @@ ggplot_nyc_weather =
 ggplot_nyc_weather
 ```
 
-![](viz_part1_files/figure-gfm/plot2-2.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot2-2.png" width="90%" />
 
 ## Fancy plot
 
@@ -108,7 +114,7 @@ ggplot(weather_df, aes(x = tmin, y = tmax, color = name)) +
 
     ## Warning: Removed 17 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot3-1.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot3-1.png" width="90%" />
 
 ``` r
 ggplot(weather_df, aes(x = tmin, y = tmax)) + 
@@ -121,7 +127,7 @@ ggplot(weather_df, aes(x = tmin, y = tmax)) +
     ## Warning: Removed 17 rows containing non-finite values (`stat_smooth()`).
     ## Removed 17 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot3-2.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot3-2.png" width="90%" />
 
 ``` r
 ggplot(weather_df, aes(x = tmin, y = tmax)) + 
@@ -132,7 +138,7 @@ ggplot(weather_df, aes(x = tmin, y = tmax)) +
 
     ## Warning: Removed 17 rows containing non-finite values (`stat_smooth()`).
 
-![](viz_part1_files/figure-gfm/plot3-3.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot3-3.png" width="90%" />
 
 ``` r
 ggplot(weather_df, aes(x = tmin, y = tmax, color = name)) + 
@@ -145,7 +151,7 @@ ggplot(weather_df, aes(x = tmin, y = tmax, color = name)) +
     ## Warning: Removed 17 rows containing non-finite values (`stat_smooth()`).
     ## Removed 17 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot3-4.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot3-4.png" width="90%" />
 
 ``` r
 ggplot(weather_df, aes(x = tmin, y = tmax)) + 
@@ -158,7 +164,7 @@ ggplot(weather_df, aes(x = tmin, y = tmax)) +
     ## Warning: Removed 17 rows containing non-finite values (`stat_smooth()`).
     ## Removed 17 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot3-5.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot3-5.png" width="90%" />
 
 Plot with facets
 
@@ -175,7 +181,7 @@ ggplot(weather_df, aes(x = tmin, y = tmax, color = name)) +
 
     ## Warning: Removed 17 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot4-1.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot4-1.png" width="90%" />
 
 ``` r
 ggplot(weather_df, aes(x = tmin, y = tmax, color = name)) + 
@@ -189,7 +195,7 @@ ggplot(weather_df, aes(x = tmin, y = tmax, color = name)) +
     ## Warning: Removed 17 rows containing non-finite values (`stat_smooth()`).
     ## Removed 17 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot4-2.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot4-2.png" width="90%" />
 
 Let’s try a different plot.
 
@@ -206,7 +212,7 @@ ggplot(weather_df, aes(x = date, y = tmax, color = name)) +
 
     ## Warning: Removed 19 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot5-1.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot5-1.png" width="90%" />
 
 try assigning a specific color
 
@@ -217,7 +223,7 @@ weather_df |>
   geom_point(color = "blue")
 ```
 
-![](viz_part1_files/figure-gfm/plot6-1.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot6-1.png" width="90%" />
 
 ``` r
 weather_df |>
@@ -228,4 +234,150 @@ weather_df |>
 
     ## Warning: Removed 17 rows containing missing values (`geom_point()`).
 
-![](viz_part1_files/figure-gfm/plot6-2.png)<!-- -->
+<img src="viz_part1_files/figure-gfm/plot6-2.png" width="90%" />
+
+``` r
+weather_df |>
+  ggplot(aes(x = tmin, y = tmax)) + 
+  geom_hex()
+```
+
+    ## Warning: Removed 17 rows containing non-finite values (`stat_binhex()`).
+
+<img src="viz_part1_files/figure-gfm/plot7-1.png" width="90%" />
+
+``` r
+weather_df |>
+  filter(name == "Molokai_HI") |>
+  ggplot(aes(x = date, y = tmax)) + 
+  geom_line(alpha = .5) + 
+  geom_point(size = .5)
+```
+
+    ## Warning: Removed 1 rows containing missing values (`geom_point()`).
+
+<img src="viz_part1_files/figure-gfm/plot7-2.png" width="90%" />
+
+## univariate plotting
+
+histogram
+
+``` r
+ggplot(weather_df, aes(x = tmax)) + 
+  geom_histogram()
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+    ## Warning: Removed 17 rows containing non-finite values (`stat_bin()`).
+
+<img src="viz_part1_files/figure-gfm/plot8-1.png" width="90%" />
+
+``` r
+ggplot(weather_df, aes(x = tmax, fill = name)) + 
+  geom_histogram()
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+    ## Warning: Removed 17 rows containing non-finite values (`stat_bin()`).
+
+<img src="viz_part1_files/figure-gfm/plot8-2.png" width="90%" />
+
+``` r
+ggplot(weather_df, aes(x = tmax, fill = name)) + 
+  geom_histogram(position = "dodge")
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+    ## Warning: Removed 17 rows containing non-finite values (`stat_bin()`).
+
+<img src="viz_part1_files/figure-gfm/plot8-3.png" width="90%" />
+
+density plot
+
+``` r
+ggplot(weather_df, aes(x = tmax, fill = name)) + 
+  geom_density()
+```
+
+    ## Warning: Removed 17 rows containing non-finite values (`stat_density()`).
+
+<img src="viz_part1_files/figure-gfm/plot9-1.png" width="90%" />
+
+``` r
+ggplot(weather_df, aes(x = tmax, fill = name)) + 
+  geom_density(alpha = .3, adjust = 2)
+```
+
+    ## Warning: Removed 17 rows containing non-finite values (`stat_density()`).
+
+<img src="viz_part1_files/figure-gfm/plot9-2.png" width="90%" />
+
+using boxlots
+
+``` r
+ggplot(weather_df, aes(y = tmax, x = name)) + 
+  geom_boxplot()
+```
+
+    ## Warning: Removed 17 rows containing non-finite values (`stat_boxplot()`).
+
+<img src="viz_part1_files/figure-gfm/plot10-1.png" width="90%" />
+
+violin plots
+
+``` r
+ggplot(weather_df, aes(y = tmax, x = name)) + 
+  geom_violin()
+```
+
+    ## Warning: Removed 17 rows containing non-finite values (`stat_ydensity()`).
+
+<img src="viz_part1_files/figure-gfm/plot11-1.png" width="90%" />
+
+ridge plot
+
+``` r
+ggplot(weather_df, aes(x = tmax, y = name)) + 
+  geom_density_ridges()
+```
+
+    ## Picking joint bandwidth of 1.54
+
+    ## Warning: Removed 17 rows containing non-finite values
+    ## (`stat_density_ridges()`).
+
+<img src="viz_part1_files/figure-gfm/plot12-1.png" width="90%" />
+
+## saving and embedding plots
+
+``` r
+ggplot_weather = 
+  weather_df |>
+  ggplot(aes(x = tmin, y = tmax)) + 
+  geom_point()
+
+ggplot_weather
+```
+
+    ## Warning: Removed 17 rows containing missing values (`geom_point()`).
+
+<img src="viz_part1_files/figure-gfm/save-1.png" width="90%" />
+
+``` r
+ggsave("results/ggplot_weather.pdf", ggplot_weather)
+```
+
+    ## Saving 6 x 3.6 in image
+
+    ## Warning: Removed 17 rows containing missing values (`geom_point()`).
+
+``` r
+ggplot_weather
+```
+
+    ## Warning: Removed 17 rows containing missing values (`geom_point()`).
+
+<img src="viz_part1_files/figure-gfm/unnamed-chunk-1-1.png" width="90%" />
