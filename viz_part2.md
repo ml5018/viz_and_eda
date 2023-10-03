@@ -66,6 +66,8 @@ weather_df =
 
     ## file min/max dates: 1999-09-01 / 2023-09-30
 
+This results in a dataframe with 2190 observations on six variables.
+
 ## same plot from last time
 
 ``` r

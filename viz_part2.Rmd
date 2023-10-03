@@ -23,8 +23,8 @@ weather_df =
   rnoaa::meteo_pull_monitors(
     c("USW00094728", "USW00022534", "USS0023B17S"),
     var = c("PRCP", "TMIN", "TMAX"), 
-    date_min = "2021-01-01",
-    date_max = "2022-12-31") |>
+    date_min = "2022-01-01",
+    date_max = "2023-12-31") |>
   mutate(
     name = recode(
       id, 
@@ -35,6 +35,8 @@ weather_df =
     tmax = tmax / 10) |>
   select(name, id, everything())
 ```
+
+This results in a dataframe with `r nrow(weather_df)` observations on six variables.
 
 ## same plot from last time
 
